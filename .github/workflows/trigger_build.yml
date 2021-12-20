@@ -23,7 +23,7 @@ jobs:
       - name: Run Custom Commands
         run: |
         
-          cd $GITHUBB_WORKSPACE
+          cd $GITHUB_WORKSPACE
           
           echo git branch
           
