@@ -31,9 +31,9 @@ jobs:
           
           git switch --orphan push-strings
           
-          git checkout develop2 Cognosos/Extensions/UIViewController+Extension.swift
+          git checkout develop README.md
           
-          git commit -m "adding new file as test"
+          git commit -m "adding new file as test - 1"
           
           git push https://github.com/satishreddyg/TestGithubAction.git push-strings:develop4
 
