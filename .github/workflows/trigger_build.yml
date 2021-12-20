@@ -1,0 +1,39 @@
+# check below links for reference
+# https://github.community/t/workflow-context-when-triggered-by-issue-comment/16570 
+# https://github.com/Khan/pull-request-comment-trigger
+
+#NOTES: we are using a package which compares the trigger phrases, check above link for more info on package
+# once trigger phrase matches, we have to make a Github API call to get the Pull_request and extract the branch name to update git_ref 
+# finally, run the script which trigger circle ci API 
+
+name: Push Strings to Strings Repo
+on:
+  push:
+    branches:
+      - develop
+
+jobs:
+  trigger_qa_build:
+    runs-on: macos-latest
+    steps:
+      - name: Checkout Repo
+        uses: actions/checkout@v2
+        with:
+          fetch-depth: 1
+      - name: Run Custom Commands
+        run: |
+        
+          cd $GITHUBB_WORKSPACE
+          
+          echo git branch
+          
+          git branch
+          
+          git switch --orphan push-strings
+          
+          git checkout develop2 Cognosos/Extensions/UIViewController+Extension.swift
+          
+          git commit -m "adding new file as test"
+          
+          git push https://github.com/satishreddyg/TestGithubAction.git push-strings:develop4
+
