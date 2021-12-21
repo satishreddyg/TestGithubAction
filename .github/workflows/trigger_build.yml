@@ -30,7 +30,8 @@ jobs:
           git config --global user.name 'satishgarlapati'
           git config --global user.email 'satishreddyg@outlook.com'
           
-          echo ${{ github.event.pull_request.head.sha }}
+          echo $(git rev-parse --short "$GITHUB_SHA")
+          echo ${GITHUB_REF#refs/heads/}
           
           cd ./../ && git clone https://github.com/cognosos/RadioTraxIOS.git
           
