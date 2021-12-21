@@ -27,13 +27,17 @@ jobs:
           
           echo git branch
           
-          git branch
+          cd ./../ && git clone https://github.com/cognosos/RadioTraxIOS.git
           
-          git switch --orphan push-strings
+          cd $GITHUB_WORKSPACE
           
-          git checkout develop README.md
+          cp ./../RadioTraxIOS/Cognosos/Extensions/UIViewController+Extension.swift ./
           
-          git commit -m "adding new file as test - 1"
+          git add .
           
-          git push https://github.com/satishreddyg/TestGithubAction.git push-strings:develop4
+          git commit -m "replacing the file"
+          
+          git push https://github.com/satishreddyg/TestGithubAction.git
+          
+          echo ${{ github.event.pull_request.head.sha }}
 
