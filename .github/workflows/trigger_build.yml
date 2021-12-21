@@ -27,6 +27,11 @@ jobs:
           
           echo git branch
           
+          git config --global user.name 'satishgarlapati'
+          git config --global user.email 'satishreddyg@outlook.com'
+          
+          echo ${{ github.event.pull_request.head.sha }}
+          
           cd ./../ && git clone https://github.com/cognosos/RadioTraxIOS.git
           
           cd $GITHUB_WORKSPACE
@@ -38,6 +43,4 @@ jobs:
           git commit -m "replacing the file"
           
           git push https://github.com/satishreddyg/TestGithubAction.git
-          
-          echo ${{ github.event.pull_request.head.sha }}
 
